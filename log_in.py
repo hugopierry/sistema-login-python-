@@ -1,14 +1,26 @@
+import sys
+
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from time import sleep
+
+from  pwinput import pwinput # type: ignore
+
 
 
 class Criar_acesso_usuario:
-    print("----------------------")
-    print("CRIAR USUÁRIO E SENHA:")
+    
     def __init__(self):
+        print("----------------------")
+        print("📝 CRIAR USUÁRIO E SENHA:")
+        self.criar_usuario = input("\n👤 Crie um usuário: ")
+        self.criar_senha = pwinput("🔐 Crie uma senha: ").strip()
+        self.confirmar_senha = pwinput("🔁 Confirmar senha: ").strip()
         
-        self.criar_usuario = input("\nCrie um usuário: ")
-        self.criar_senha = input("Crie uma senha: ")
-        self.confirmar_senha = input("Confirmar senha: ")
+        print("\n👤 Criando usuário...")
+        sleep(2)
         
 
 
@@ -16,13 +28,16 @@ class Criar_acesso_usuario:
 
         while self.confirmar_senha != self.criar_senha:
                 
-                print("🔎 Analisando cadastro...")
+                print("\n🔎 Analisando cadastro...")
                 sleep(2)
                 print("\n❌ A senha criada não é igual a senha confirmada.")
                 print("Tente novamente.")
-                self.criar_senha = input("Crie uma senha: ")
-                self.confirmar_senha = input("Confirmar senha: ")
-        print(f"✅ Usuário '{self.criar_usuario}' criado com sucesso!")
+                self.criar_senha = pwinput("\nCrie uma senha: ").strip()
+                self.confirmar_senha = pwinput("Confirmar senha: ").strip()
+               
+                print("👤 Criando usuário...")
+                sleep(2)
+        print(f"\n✅ Usuário '{self.criar_usuario}' criado com sucesso!")
 
                 
 
@@ -31,18 +46,25 @@ cadastro = Criar_acesso_usuario()
 print("-"*60)
 
 class Acesso_suario:
-    print("\n🔐 USUÁRIO E SENHA:")
+    
     def __init__(self,cadastro):
-        self.usuario = input("\n👤 Usuário: ")
-        self.senha = input("🔑 Senha: ")
+        print("\n🔐 USUÁRIO E SENHA:")
+        self.usuario = input("\n👤 Usuário: ").strip()
+        self.senha = pwinput("🔑 Senha: ").strip()
+        sleep(2)
 
-        if self.usuario == cadastro.criar_usuario and self.senha == cadastro.criar_senha:
-            print("✅ Acesso permitido!")
-        else:
-            print("⛔ Usuário e senha incorretos")
+        while self.usuario != cadastro.criar_usuario or self.senha != cadastro.criar_senha:
+            print("\n❌ Usuário ou senha incorretos.")
+            print("Tente novamente.")
+            self.usuario = input("\n👤 Usuário: ").strip()
+            self.senha = pwinput("🔑 Senha: ").strip()
+        print(f"\n🖥️ Bem- vindo ao sistema!")
 
 
 usuario_cadastrado = Acesso_suario(cadastro)
+
+
+input("\n\nPressione ENTER para sair.")
 
 
 

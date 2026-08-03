@@ -19,6 +19,7 @@ Este projeto faz parte da minha jornada de aprendizado em **Python e POO** e ser
 * ⛔ Bloqueio de acesso quando os dados estão incorretos
 * ⏳ Uso de `time.sleep()` para simular etapas de processamento
 * 💬 Interface no terminal com mensagens e emojis
+* 🔐 Senha oculta durante a digitação (via `pwinput`)
 
 ## 🧠 Conceitos praticados
 
@@ -36,7 +37,6 @@ Este projeto faz parte da minha jornada de aprendizado em **Python e POO** e ser
 
 ## 🚀 Próximas melhorias
 
-* 🔐 Ocultar a senha durante a digitação
 * 🖥️ Criar um painel de terminal mais profissional
 * 🔄 Permitir novas tentativas de login sem encerrar o programa
 * 🔢 Criar limite de tentativas de acesso
