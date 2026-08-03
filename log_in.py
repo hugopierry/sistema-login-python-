@@ -67,33 +67,3 @@ usuario_cadastrado = Acesso_suario(cadastro)
 input("\n\nPressione ENTER para sair.")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# usuario = "hugopierry"
-# senha = "123456"
-
-# usuario = input("Digite o usuário: ").strip()
-# senha = int(input("Digite a senha: ").strip())
-
-
-# if usuario == "hugopierry" and senha == 123456:
-#     print("Usuário encontrado,Acesso permitido")
-# else:
-#     print(f"{usuario} não encontrado, acesso negado")
-
